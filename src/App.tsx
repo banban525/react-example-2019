@@ -6,8 +6,16 @@ import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Typography from "@material-ui/core/Typography";
 import "./App.css";
+import { AppStore } from "./AppStore";
+import { inject, observer } from "mobx-react";
 
-class App extends React.Component {
+interface AppProps {
+  appStore?: AppStore;
+}
+
+@inject("appStore")
+@observer
+class App extends React.Component<AppProps> {
   render(): JSX.Element {
     return (
       <div className="App">

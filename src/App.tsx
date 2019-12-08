@@ -1,26 +1,51 @@
 import React from "react";
-import logo from "./logo.svg";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import IconButton from "@material-ui/core/IconButton";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Typography from "@material-ui/core/Typography";
 import "./App.css";
 
 class App extends React.Component {
-  public render = (): JSX.Element => {
+  render(): JSX.Element {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Hello World</p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Card style={{ width: 300, margin: 2 }}>
+          <CardHeader
+            action={
+              <IconButton aria-label="settings">
+                <MoreVertIcon />
+              </IconButton>
+            }
+            title="タイトル"
+            subheader="2019-12-17"
+          />
+          <CardContent>
+            <Typography color="textSecondary" gutterBottom>
+              アブストラクトです。
+            </Typography>
+          </CardContent>
+        </Card>
+        <Card style={{ width: 300, margin: 2 }}>
+          <CardHeader
+            action={
+              <IconButton aria-label="settings">
+                <MoreVertIcon />
+              </IconButton>
+            }
+            title="タイトルその2"
+            subheader="2019-12-17"
+          />
+          <CardContent>
+            <Typography color="textSecondary" gutterBottom>
+              アブストラクトその2です。
+            </Typography>
+          </CardContent>
+        </Card>
       </div>
     );
-  };
+  }
 }
 
 export default App;

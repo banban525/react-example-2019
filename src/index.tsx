@@ -5,6 +5,23 @@ import App from "./App";
 import { AppStore } from "./AppStore";
 import { Provider } from "mobx-react";
 import * as serviceWorker from "./serviceWorker";
+import fetchMock from "fetch-mock";
+
+const dummyData = [
+  {
+    id: 1,
+    title: "[サーバー]タイトル",
+    date: "2019-12-17",
+    abstract: "アブストラクトです。"
+  },
+  {
+    id: 2,
+    title: "[サーバー]タイトルその2",
+    date: "2019-12-17",
+    abstract: "アブストラクトその2です。"
+  }
+];
+fetchMock.get("/api/summaries/", dummyData);
 
 const stores = {
   appStore: new AppStore()

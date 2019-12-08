@@ -1,4 +1,4 @@
-//import { action, observable } from "mobx";
+import { action, observable } from "mobx";
 
 export interface BlogSummary {
   id: number;
@@ -8,10 +8,10 @@ export interface BlogSummary {
 }
 
 export class AppStore {
-  //@observable
+  @observable
   data: BlogSummary[] = [];
 
-  //@action
+  @action
   public fetchData = async (): Promise<void> => {
     const json = (await (
       await fetch("/api/summaries/")

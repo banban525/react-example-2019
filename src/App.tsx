@@ -1,13 +1,8 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import IconButton from "@material-ui/core/IconButton";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Typography from "@material-ui/core/Typography";
 import "./App.css";
 import { AppStore } from "./AppStore";
 import { inject, observer } from "mobx-react";
+import SummaryItem from "./SummaryItem";
 
 interface AppProps {
   appStore?: AppStore;
@@ -35,22 +30,12 @@ class App extends React.Component<AppProps> {
       <div className="App">
         {this.props.appStore.data.map(data => {
           return (
-            <Card key={data.id} style={{ width: 300, margin: 2 }}>
-              <CardHeader
-                action={
-                  <IconButton aria-label="settings">
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title={data.title}
-                subheader={data.date}
-              />
-              <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  {data.abstract}
-                </Typography>
-              </CardContent>
-            </Card>
+            <SummaryItem
+              key={data.id}
+              title={data.title}
+              date={data.date}
+              abstract={data.abstract}
+            />
           );
         })}
       </div>

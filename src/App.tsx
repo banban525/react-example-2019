@@ -32,6 +32,7 @@ class App extends React.Component<AppProps> {
           return (
             <SummaryItem
               key={data.id}
+              url={`./contents/${data.id}`}
               title={data.title}
               date={data.date}
               abstract={data.abstract}

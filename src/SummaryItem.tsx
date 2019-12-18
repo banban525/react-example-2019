@@ -5,11 +5,13 @@ import CardContent from "@material-ui/core/CardContent";
 import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 interface SummaryItemProps {
   title: string;
   date: string;
   abstract: string;
+  url: string;
 }
 
 class SummaryItem extends React.Component<SummaryItemProps> {
@@ -22,7 +24,7 @@ class SummaryItem extends React.Component<SummaryItemProps> {
               <MoreVertIcon />
             </IconButton>
           }
-          title={this.props.title}
+          title={<Link to={this.props.url}>{this.props.title}</Link>}
           subheader={this.props.date}
         />
         <CardContent>
